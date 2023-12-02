@@ -50,7 +50,7 @@ def over_than_17(cards):
 ## cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 ## The cards in the list have equal probability of being drawn.
 ## Cards are not removed from the deck as they are drawn.
-## The computer is the dealer.
+## The computer is the dealer..
 
 want_to_paly = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
 
@@ -62,7 +62,7 @@ if want_to_paly == 'y':
     print_dealer()
     print_user()
 
-    while user_next_card:
+    while user_next_card: # checking if user is under 21, and allowing to draw another card
         if less_than_21(user_cards):
             another_card = input("Do You want to draw another card? Type 'y' or 'n': ")
             if another_card == 'y':
@@ -74,7 +74,7 @@ if want_to_paly == 'y':
             print("You LOST!! You are pass 21.")
             user_next_card = False
 
-    while casino_next_card:
+    while casino_next_card: # cehcking if dealer is over 17, drawing another card if not
         if not over_than_17(dealer_cards):
             dealer_cards.append(draw_card())
         else:
