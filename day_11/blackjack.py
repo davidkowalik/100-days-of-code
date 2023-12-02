@@ -81,7 +81,7 @@ if want_to_paly == 'y':
             else:
                 user_next_card = False
         else:
-            print("You LOST!! You are pass 21.")
+            #print("You LOST!! You are pass 21.")
             user_next_card = False
 
     while casino_next_card: # cehcking if dealer is over 17, drawing another card if not
@@ -90,17 +90,19 @@ if want_to_paly == 'y':
         else:
             casino_next_card = False
 
-    print( f"Dealer final hand is: {dealer_cards}")
-    print( f"Your final hand is:   {user_cards}")
+    print( f"\nDealer final hand is: {dealer_cards}, fianl score: {sum(dealer_cards)}")
+    print( f"Your final hand is:   {user_cards}, fianl score: {sum(user_cards)}")
     
-    if sum(dealer_cards) > 21:
-        print("You WIN !!!")
-    elif 21 - sum(dealer_cards) < 21 - sum(user_cards):
+    if sum(user_cards) > 21:
+        print("You went over. You LOST 😭 !!")
+    elif sum(dealer_cards) > 21:
+        print("Dealer went over. You WIN !!")
+    elif 21 - sum(dealer_cards) > 21 - sum(user_cards):
         print("You WIN !!")
-    elif 21 - sum(dealer_cards) < 21 - sum(user_cards):
+    elif 21 - sum(dealer_cards) == 21 - sum(user_cards):
         print("It is a TIE")
     else:
-        print("You LOST !!")
+        print("You LOST 😭 !!")
     
     
     
