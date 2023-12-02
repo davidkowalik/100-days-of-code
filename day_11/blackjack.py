@@ -3,7 +3,7 @@ import random
 from art import logo
 
 
-#os.system('cls')
+os.system('cls')
 
 print(logo)
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
@@ -33,6 +33,16 @@ def over_than_17(cards):
     else:
         return True
 
+def did_i_won():
+    if sum(dealer_cards) > 21:
+        return "yes"
+    elif 21 - sum(dealer_cards) < 21 - sum(user_cards):
+        return "yes"
+    elif 21 - sum(dealer_cards) < 21 - sum(user_cards):
+        return "tie"
+    else:
+        return "no"
+
 ############### Blackjack Project #####################
 
 #Difficulty Normal 😎: Use all Hints below to complete the project.
@@ -50,7 +60,7 @@ def over_than_17(cards):
 ## cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 ## The cards in the list have equal probability of being drawn.
 ## Cards are not removed from the deck as they are drawn.
-## The computer is the dealer..
+## The computer is the dealer.
 
 want_to_paly = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
 
@@ -79,8 +89,21 @@ if want_to_paly == 'y':
             dealer_cards.append(draw_card())
         else:
             casino_next_card = False
+
+    print( f"Dealer final hand is: {dealer_cards}")
+    print( f"Your final hand is:   {user_cards}")
     
-    print_dealer()
+    if sum(dealer_cards) > 21:
+        print("You WIN !!!")
+    elif 21 - sum(dealer_cards) < 21 - sum(user_cards):
+        print("You WIN !!")
+    elif 21 - sum(dealer_cards) < 21 - sum(user_cards):
+        print("It is a TIE")
+    else:
+        print("You LOST !!")
+    
+    
+    
 else:
     print("Thank You for Your time!")   
 
