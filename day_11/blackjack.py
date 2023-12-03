@@ -6,13 +6,14 @@ from art import logo
 os.system('cls')
 
 print(logo)
-cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+
 dealer_cards = []  # list wil hold dealer cards
 user_cards = []  # list wil hold user cards
 user_next_card = True
 casino_next_card = True
 
 def draw_card():
+    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
     return random.choice(cards)
 
 def print_user():
