@@ -19,8 +19,8 @@ def who_won(dict_A, dict_B):
 def print_comnpare(dict):
     print(f"Compare A: {dict['name']}, {dict['description']}, from {dict['country']}.")
 
-# Variables -------------------
 
+# Variables -------------------
 A = {}
 B = {}
 score = 0
@@ -56,3 +56,7 @@ while lose == False:
         os.system('cls')
         print (art.logo)
         print(f"Sorry, that's wrong! Final score: {score}.")
+# TODO - 123091509234 
+
+
+# TODO - 2 asl;dkfj ;alskjg df
