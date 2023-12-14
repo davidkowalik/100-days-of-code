@@ -2,8 +2,8 @@ from turtle import Turtle
 import random
 
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
-STARTING_MOVE_DISTANCE = 5
-MOVE_INCREMENT = 10
+STARTING_MOVE_DISTANCE = 10
+MOVE_INCREMENT = 5
 INITIAL_TRAFFIC = 10
 
 
@@ -13,10 +13,10 @@ class CarManager():
         self.add_new_car = 1
         self.init_traffic()
         
-    def move_traffic(self):
+    def move_traffic(self, lvl):
         for i in range(0, len(self.cars)):
-            self.cars[i].forward(STARTING_MOVE_DISTANCE)
-        if self.add_new_car % 10 == 0:
+            self.cars[i].forward(STARTING_MOVE_DISTANCE + lvl * MOVE_INCREMENT)
+        if self.add_new_car % 5 == 0:
             self.add_car()
             self.add_new_car = 1
         else:

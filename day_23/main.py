@@ -25,13 +25,14 @@ screen.listen()
 screen.onkeypress(player.move, "Up")
 
 traffic = CarManager()
+scoreboard = Scoreboard()
 
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
 
-    traffic.move_traffic()
+    traffic.move_traffic(scoreboard.current_lvl - 1)
     for car in traffic.cars:
         if player.distance(car) <= 20:
             game_is_on = False
@@ -39,4 +40,5 @@ while game_is_on:
 
     if player.ycor() >= 300:
         player.reset_player_position()
+        scoreboard.increase_level()
         print("Next Level")
