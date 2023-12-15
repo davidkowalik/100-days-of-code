@@ -36,9 +36,12 @@ while game_is_on:
     for car in traffic.cars:
         if player.distance(car) <= 20:
             game_is_on = False
+            scoreboard.game_over()
             print("Game OVER!!")
 
-    if player.ycor() >= 300:
+    if player.ycor() >= 280:
         player.reset_player_position()
         scoreboard.increase_level()
         print("Next Level")
+
+screen.exitonclick()
