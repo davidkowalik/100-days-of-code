@@ -4,7 +4,6 @@ import random
 import pyperclip
 import json
 
-
 # ---------------------------- SEARCH PASSWORD ------------------------------- #
 def search():
     website = webside_ent.get()
@@ -17,7 +16,7 @@ def search():
                 # read json data
                 data = json.load(json_data_file)
         except FileNotFoundError:
-            messagebox.showinfo(title="Something is wrong?", message="JSON file missing, check this")
+            messagebox.showinfo(title="Error?", message="JSON file missing, check this")
         else:
             if website in data:
                 messagebox.showinfo(title=website, message=f"Email: {data[website]['email']}\nPassword: {data[website]['password']}")
@@ -83,7 +82,7 @@ def save():
 
 
 # ---------------------------- UI SETUP ------------------------------- #
-# widow setup
+# widow setup ---------------------
 window = Tk()
 window.title("Password Manager")
 window.config(padx=25, pady=25)
@@ -95,7 +94,7 @@ canvas.create_image(100, 100, image=logo_image)
 canvas.grid(column=1, row=0)
 
 
-# labels setup
+# labels setup ---------------------
 webside_lb = Label( text="Website:")
 webside_lb.grid(column=0, row=1)
 
@@ -105,7 +104,7 @@ email_lb.grid(column=0, row=2)
 pass_lb = Label( text="Password:")
 pass_lb.grid(column=0, row=3)
 
-# buttons setup
+# buttons setup ---------------------
 add = Button(text="Add", width=58, command=save)
 add.grid(column=1, row=4, columnspan=2)
 
@@ -115,7 +114,7 @@ gen_pass.grid(column=2, row=3)
 search =  Button(text="Search", width=15, command=search)
 search.grid(column=2, row=1, columnspan=1)
 
-# entry setup
+# entry setup ---------------------
 webside_ent = Entry(width=33, font=("consolas"))
 webside_ent.grid(column=1, row=1)
 webside_ent.focus() # cursor ready in first entry after starting program
