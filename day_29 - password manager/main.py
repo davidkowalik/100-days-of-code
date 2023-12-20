@@ -4,6 +4,7 @@ import random
 import pyperclip
 import json
 
+
 # ---------------------------- SEARCH PASSWORD ------------------------------- #
 def search():
     website = webside_ent.get()
