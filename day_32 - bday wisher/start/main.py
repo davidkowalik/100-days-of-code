@@ -10,7 +10,6 @@ def send_email(to, message):
         connection.starttls()
         connection.login(user=my_email, password=password)
         connection.sendmail(from_addr=my_email, to_addrs=to, msg=message)
-        connection.sendmail()
 
 today = dt.datetime.now().weekday()
 
