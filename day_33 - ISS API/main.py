@@ -1,9 +1,12 @@
 import requests
 from datetime import datetime
 import time
+import smtplib
 
 MY_LAT = 50.033112
 MY_LNG = 20.217400
+MY_EMAIL= "python.study@gmail.com"
+PASSWORD = ""
 
 def is_iss_over():
     response = requests.get(url='http://api.open-notify.org/iss-now.json')
@@ -39,7 +42,7 @@ def is_night():
     print(f"Sunset: {sunset_h}")
     hour_now = datetime.utcnow().hour
     print(hour_now)
-    if sunrise_h > hour_now or sunset_h < hour_now:
+    if sunrise_h >= hour_now or sunset_h <= hour_now:
         return True
     else:
         return False
@@ -50,6 +53,12 @@ print(is_night())
 while True:
 
     if is_iss_over() and is_night():
-        print("Look up, ISS over You.")
 
+        message = f"Subject:Look up!!\n\nISS over You."
+
+        with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
+            connection.starttls()
+            connection.login(user=MY_EMAIL, password=PASSWORD)
+            connection.sendmail(from_addr=MY_EMAIL, to_addrs=to, msg=message)
+    
     time.sleep(60)
