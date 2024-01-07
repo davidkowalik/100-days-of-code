@@ -5,7 +5,7 @@ import os
 import datetime
 
 # openweathermap setup
-# api_key = "f0948577a60c4a618eff41de2617ecaa"
+# api_key = ""
 api_key = ''
 weather_url = "https://api.openweathermap.org/data/2.5/weather"
 forecast_url = "https://api.openweathermap.org/data/2.5/forecast"
